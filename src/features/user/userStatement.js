@@ -6,10 +6,19 @@ export const userStatement = createSlice({
     value:
       (localStorage.getItem("Token") || sessionStorage.getItem("Token")) ??
       false,
+    informations: {
+      email: "",
+      firstName: "",
+      lastName: "",
+      userName: "",
+    },
   },
   reducers: {
     loggedIn: (state) => {
       state.value = true;
+    },
+    setUserInformations: (state, action) => {
+      state.informations = action.payload;
     },
     loggedOut: (state) => {
       state.value = false;
@@ -17,6 +26,7 @@ export const userStatement = createSlice({
   },
 });
 
-export const { loggedIn, loggedOut } = userStatement.actions;
+export const { loggedIn, loggedOut, setUserInformations } =
+  userStatement.actions;
 
 export default userStatement.reducer;
