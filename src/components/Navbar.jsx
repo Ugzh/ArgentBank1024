@@ -1,9 +1,13 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCircleUser } from "@fortawesome/free-solid-svg-icons";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+import { loggedOut } from "../features/user/userStatement";
+import { useNavigate } from "react-router-dom";
 
 export const Navbar = () => {
   const userStatement = useSelector((state) => state.user.value);
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   return (
     <>
@@ -18,10 +22,16 @@ export const Navbar = () => {
         </a>
         <div>
           {userStatement ? (
-            <a className="main-nav-item" href="/">
+            <button
+              className="main-button-item"
+              onClick={() => {
+                dispatch(loggedOut());
+                navigate("/");
+              }}
+            >
               <FontAwesomeIcon icon={faCircleUser} />
               Sign Out
-            </a>
+            </button>
           ) : (
             <a className="main-nav-item" href="./sign-in">
               <FontAwesomeIcon icon={faCircleUser} />

@@ -8,7 +8,7 @@ import App from "./App.jsx";
 import { SignIn } from "./pages/Sign-in.jsx";
 import { Profile } from "./pages/Profile.jsx";
 import { GlobalErrorPage } from "./pages/globalErrorPage.jsx";
-import { ProfileErrorPage } from "./pages/ProfileErroPage.jsx";
+import { ProfileErrorPage } from "./pages/ProfileErrorPage.jsx";
 
 const router = createBrowserRouter([
   {

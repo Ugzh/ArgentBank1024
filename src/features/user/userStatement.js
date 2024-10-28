@@ -21,6 +21,8 @@ export const userStatement = createSlice({
       state.informations = action.payload;
     },
     loggedOut: (state) => {
+      localStorage.clear();
+      sessionStorage.clear();
       state.value = false;
     },
   },
